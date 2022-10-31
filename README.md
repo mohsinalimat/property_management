@@ -36,21 +36,53 @@ ___
 
 ![image](https://user-images.githubusercontent.com/99652762/194038749-445a56f6-c536-409d-abf8-cb398ea24f6f.png)
 
-
 #### Status-wise listview property
 
 ![image](https://user-images.githubusercontent.com/99652762/194041041-67fec3b9-4091-4fe3-8191-82ce4e12c6ab.png)
 
-## Auto create Rent Items
+## Auto create Rent Item
 - If the property is rentable and submitted then automatically rent item will create in the property item and it links with the property.
 
 ![image](https://user-images.githubusercontent.com/99652762/194048754-3ab62fbe-ad53-4f8e-a2ac-54fb6cef7aa6.png)
 
-## Customer / Tenant / Landlord / Property Owner / Property Manager
+## Property Owner & Property Owner Group
+- You can manage the Property Owner Group, and territory, and also define the list of properties.
+
+![image](https://user-images.githubusercontent.com/99652762/195586735-df931a43-48a4-433f-9cb2-8737751ce40b.png)
+
+#### Property Owner Group Tree
+
+![image](https://user-images.githubusercontent.com/99652762/195586907-3f9b11ff-b7d8-405b-9425-5d7b68d2aea2.png)
+
+## Property Manager & Property Manager Group
+
+![image](https://user-images.githubusercontent.com/99652762/195587779-5eb8aa4c-72a4-4d7d-a665-c3682c55d072.png)
+
+#### Property Manager Group
+
+![image](https://user-images.githubusercontent.com/99652762/195587843-a6c09d06-a05a-403a-b209-a0eb2a2eb52b.png)
+
+## Tenant & Tenant Group
+
+![image](https://user-images.githubusercontent.com/99652762/195589062-3898b43d-cbfe-4931-b958-9eab552ffdda.png)
+
+#### Tenant Group
+
+![image](https://user-images.githubusercontent.com/99652762/195589344-7c862e22-65f8-41ab-abfd-099c7dcca61a.png)
+
+## Landlord & Landlord Group
+
+![image](https://user-images.githubusercontent.com/99652762/195589537-adbdf789-0bb0-4c10-994e-03962a734255.png)
+
+#### Landlord Group
+
+![image](https://user-images.githubusercontent.com/99652762/195589717-869fd621-2de5-40e6-8160-8c30b6f50995.png)
+
+## Customer View
+- When you create a property owner, property manager, tenant, and landlord. After the save it then will automatically create a customer as per created doctype and link with the created doctype.
 - You can manage customers, tenants, landlords, property owners, and property managers in customer doctype.
 
-![image](https://user-images.githubusercontent.com/99652762/194050523-b8e48d44-5c6a-4c6d-9138-d94603223ae3.png)
-
+![image](https://user-images.githubusercontent.com/99652762/195591443-ea5bc763-4282-449d-8dcd-6f948615b7ba.png)
 
 ## Tenancy
 - You can tenant-wise tenancy and landlord-wise tenancy managed in one form.
@@ -70,7 +102,7 @@ ___
 
 ![image](https://user-images.githubusercontent.com/99652762/194054006-684d8efb-89b8-4bd6-8665-c92122f5a1e6.png)
 
-- Calendar View
+#### Calendar View
 
 ![image](https://user-images.githubusercontent.com/99652762/194055456-eb8eb740-6aab-41b3-8fea-77a7565a66cd.png)
 

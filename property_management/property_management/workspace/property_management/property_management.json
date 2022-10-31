@@ -87,6 +87,24 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Asset Movement",
+   "link_to": "Asset Movement",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Location",
+   "link_to": "Location",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Tenant Details",
    "link_type": "DocType",
    "onboard": 0,
@@ -97,9 +115,19 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Tenant",
-   "link_to": "Customer",
+   "link_to": "Tenant",
    "link_type": "DocType",
    "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tenant Group",
+   "link_to": "Tenant Group",
+   "link_type": "DocType",
+   "onboard": 0,
    "type": "Link"
   },
   {
@@ -123,9 +151,18 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Landlord",
-   "link_to": "Customer",
+   "link_to": "Landlord",
    "link_type": "DocType",
    "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Landlord Group",
+   "link_to": "Landlord Group",
+   "link_type": "DocType",
+   "onboard": 0,
    "type": "Link"
   },
   {
@@ -141,8 +178,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Schedules",
-   "link_to": "",
+   "label": "Property Owner Details",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -150,8 +186,17 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Tenancy Schedule",
-   "link_to": "Event",
+   "label": "Property Owner",
+   "link_to": "Property Owner",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Property Owner Group",
+   "link_to": "Property Owner Group",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -159,7 +204,86 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Reports",
+   "label": "Property Manager Details",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Property Manager",
+   "link_to": "Property Manager",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Property Manager Group",
+   "link_to": "Property Manager Group",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Maintenance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Maintenance Team",
+   "link_to": "Asset Maintenance Team",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Maintenance",
+   "link_to": "Asset Maintenance",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Maintenance Log",
+   "link_to": "Asset Maintenance Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Value Adjustment",
+   "link_to": "Asset Value Adjustment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Asset Repair",
+   "link_to": "Asset Repair",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Property Reports",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -221,6 +345,68 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Asset Depreciation Reports",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Fixed Asset Register",
+   "link_to": "Fixed Asset Register",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Asset Depreciation Ledger",
+   "link_to": "Asset Depreciation Ledger",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Asset Depreciations and Balances",
+   "link_to": "Asset Depreciations and Balances",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Schedules",
+   "link_to": "",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tenancy Schedule",
+   "link_to": "Event",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Appointment",
+   "link_to": "Appointment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Other Details",
    "link_type": "DocType",
    "onboard": 0,
@@ -229,34 +415,32 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Customers",
+   "label": "Customer",
    "link_to": "Customer",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Customer Group",
+   "link_to": "Customer Group",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   },
   {
-   "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Property Owner",
-   "link_to": "Customer",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Property Manager",
-   "link_to": "Customer",
+   "label": "Territory",
+   "link_to": "Territory",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2022-10-05 12:14:23.443583",
+ "modified": "2022-10-13 15:17:28.698180",
  "modified_by": "Administrator",
  "module": "Property Management",
  "name": "Property Management",
@@ -276,32 +460,32 @@
    "doc_view": "",
    "format": "",
    "label": "Property Owner",
-   "link_to": "Customer",
-   "stats_filter": "{\"is_property_owner\":[\"=\",\"1\"]}",
+   "link_to": "Property Owner",
+   "stats_filter": "",
    "type": "DocType"
   },
   {
    "doc_view": "",
    "format": "",
    "label": "Property Manager",
-   "link_to": "Customer",
-   "stats_filter": "{\"is_property_manager\":[\"=\",\"1\"]}",
+   "link_to": "Property Manager",
+   "stats_filter": "",
    "type": "DocType"
   },
   {
    "doc_view": "",
    "format": "",
    "label": "Tenant",
-   "link_to": "Customer",
-   "stats_filter": "{\"is_tenant\":[\"=\",\"1\"]}",
+   "link_to": "Tenant",
+   "stats_filter": "",
    "type": "DocType"
   },
   {
    "doc_view": "",
    "format": "",
    "label": "Landlord",
-   "link_to": "Customer",
-   "stats_filter": "{\"is_landlord\":[\"=\",\"1\"]}",
+   "link_to": "Landlord",
+   "stats_filter": "",
    "type": "DocType"
   },
   {

@@ -116,12 +116,29 @@ doctype_list_js = {
 
 doc_events = {
 	"Tenancy": {
-		"on_submit": "property_management.api.crud_event.tenant_schedule"
+		"on_submit": "property_management.property_management.doctype.tenancy.tenancy.tenant_schedule"
 	},
 
 	"Asset": {
 		"on_submit": "property_management.api.crud_event.rent_item"
+	},
+
+	"Property Owner": {
+		"on_change": "property_management.property_management.doctype.property_owner.property_owner.create_property_owner_customer"
+	},
+
+	"Property Manager": {
+		"on_change": "property_management.property_management.doctype.property_manager.property_manager.create_property_manager_customer"
+	},
+
+	"Tenant": {
+		"on_change": "property_management.property_management.doctype.tenant.tenant.create_tenant_customer"
+	},
+
+	"Landlord": {
+		"on_change": "property_management.property_management.doctype.landlord.landlord.create_landlord_customer"
 	}
+
 }
 
 # Scheduled Tasks
