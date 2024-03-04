@@ -283,6 +283,8 @@ frappe.ui.form.on('Asset', {
 
 frappe.ui.form.on('Asset', {
     refresh(frm) {
+        console.log("Test ::::::::::::::::::::::")
+        frm.set_df_property('depreciation_schedule_sb', 'hide', 1)
         frm.add_custom_button(__("Available"), function() {
             frm.set_value('property_status', "Available");
             frm.save();

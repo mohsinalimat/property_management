@@ -3,20 +3,23 @@
 
 frappe.ui.form.on("Tenancy", {
     refresh: function(frm, cdt, cdn) {
-    	if (frm.doc.docstatus != 1) {
+    	// if (frm.doc.docstatus != 1) {
 	        frm.add_custom_button(__("Get Schedule"), function() {
 	            frm.clear_table("tenant_schedule");
 	            frappe.call({
 	                method: "frappe.client.get",
 	                args: {
-	                    name: frm.doc.asset,
-	                    doctype: "Asset"
+	                    doctype: "Asset Depreciation Schedule",
+	                filters: {
+	                	"asset": cur_frm.doc.asset
 	                },
+	                fieldname:["asset"]
+	                },	               
 	                callback(r) {
 	                    if (r.message) {
-	                        for (var row in r.message.schedules) {
+	                        for (var row in r.message.depreciation_schedule) {
 	                            var child = frm.add_child("tenant_schedule");
-	                            var rms = r.message.schedules[row];
+	                            var rms = r.message.depreciation_schedule[row];
 	                            frappe.model.set_value(child.doctype, child.name, "schedule_date", rms.schedule_date);
 	                            frappe.model.set_value(child.doctype, child.name, "tenant_schedule_id", rms.name);
 	                            frappe.model.set_value(child.doctype, child.name, "amount", rms.depreciation_amount);
@@ -27,11 +30,11 @@ frappe.ui.form.on("Tenancy", {
 	                }
 	            });
 	        });
-		}
+		// }
     }
 });
 
-
+ 
 frappe.ui.form.on('Tenancy', {
 	refresh: function(frm) {
 		frm.fields_dict.tenant_schedule.grid.wrapper.find('.grid-remove-rows').hide();

@@ -19,6 +19,8 @@
   "ground_rent",
   "column_break_8",
   "advance_deposit",
+  "number_of_deposit_booked",
+  "total_deposit_amount",
   "invoice",
   "is_paid",
   "payment_entry",
@@ -119,7 +121,7 @@
    "fetch_if_empty": 1,
    "fieldname": "advance_deposit",
    "fieldtype": "Float",
-   "label": "Advance Deposit",
+   "label": "Advance Amount",
    "read_only": 1
   },
   {
@@ -190,15 +192,30 @@
    "label": "Company",
    "options": "Company",
    "reqd": 1
+  },
+  {
+   "fetch_from": "asset.number_of_depreciations_booked",
+   "fetch_if_empty": 1,
+   "fieldname": "number_of_deposit_booked",
+   "fieldtype": "Int",
+   "label": "Number of Rent Booked",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_deposit_amount",
+   "fieldtype": "Currency",
+   "label": "Total Rent Amount",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2022-09-30 10:47:12.953997",
+ "modified": "2023-08-07 10:53:27.962725",
  "modified_by": "Administrator",
  "module": "Property Management",
  "name": "Tenancy",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -219,6 +236,7 @@
  "search_fields": "asset",
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "title_field": "asset_name",
  "track_changes": 1
 }
