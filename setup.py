@@ -10,7 +10,7 @@ setup(
 	name="property_management",
 	version=version,
 	description="Property Management system for Real Estate Vertical",
-	author="Nihantra C. Patel",
+	author="Ketan Patel",
 	author_email="contact@solufy.in",
 	packages=find_packages(),
 	zip_safe=False,

@@ -34,7 +34,6 @@ frappe.ui.form.on("Tenancy", {
     }
 });
 
- 
 frappe.ui.form.on('Tenancy', {
 	refresh: function(frm) {
 		frm.fields_dict.tenant_schedule.grid.wrapper.find('.grid-remove-rows').hide();
@@ -56,10 +55,145 @@ frappe.ui.form.on('Tenant Schedule', {
 frappe.ui.form.on('Tenant Schedule', {
 	invoice: function(frm, cdt, cdn) {
 		var d = locals[cdt][cdn];
-		frappe.model.set_value(cdt,cdn,'pending_amount', d.amount - d.invoice_amount);
+		// frappe.model.set_value(cdt,cdn,'pending_amount', d.amount - d.invoice_amount);
+	},
+	is_invoice: function(frm, cdt, cdn) {
+    var e = locals[cdt][cdn];
+    
+    // Check if invoice is flagged
+    if (e.is_invoice == 1) {
+        if (frm.doc.is_tenant_tenancy == 1) {
+            // Create invoice for tenant tenancy
+            createInvoice(frm, cdt, cdn);
+        } else if (frm.doc.is_landlord_tenancy == 1) {
+            // Create invoice for landlord tenancy
+            createInvoicelandlord(frm, cdt, cdn);
+        }
+    }
+}
+
+});
+
+frappe.ui.form.on('Tenant Schedule', {
+	is_paid: function(frm,cdt,cdn) {
+		var e = locals[cdt][cdn];
+		if (frm.doc.is_tenant_tenancy == 1){
+			if(e.is_paid == 1){
+				create_paymententry(frm,cdt,cdn);
+			}
+		} else if(frm.doc.is_landlord_tenancy == 1){
+			if(e.is_paid == 1){
+				create_paymententry_landlord(frm,cdt,cdn);
+			}
+		}
 	}
 });
 
+function createInvoice(frm,cdt,cdn) {
+	var row = locals[cdt][cdn];
+    frappe.call({
+        method: 'property_management.property_management.doctype.tenancy.tenancy.create_invoice',
+        args: {
+            tenant: frm.doc.tenant,
+            prt: frm.doc.asset,
+            prt_name: frm.doc.asset_name,
+            amt: row.amount,
+            custom_tenancy_id: frm.doc.name
+        },
+        callback: function(response) {
+            if (response.message) {
+                frappe.model.set_value(cdt,cdn,'invoice', response.message);
+                frm.save('Update');
+                // frappe.msgprint(`${response.message} Invoice created successfully!`);
+            } else {
+                frappe.msgprint('Failed to create invoice');
+            }
+        }
+    });
+}
+function createInvoicelandlord(frm,cdt,cdn) {
+	var row = locals[cdt][cdn];
+    frappe.call({
+        method: 'property_management.property_management.doctype.tenancy.tenancy.create_invoice_landlord',
+        args: {
+            landlord: frm.doc.landlord,
+            prt: frm.doc.asset,
+            prt_name: frm.doc.asset_name,
+            amt: row.amount,
+            custom_tenancy_id: frm.doc.name
+        },
+        callback: function(response) {
+            if (response.message) {
+                frappe.model.set_value(cdt,cdn,'invoice', response.message);
+                frm.save('Update');
+                // frappe.msgprint(`${response.message} Invoice created successfully!`);
+            } else {
+                frappe.msgprint('Failed to create invoice');
+            }
+        }
+    });
+}
+
+function create_paymententry(frm,cdt,cdn) {
+	var row = locals[cdt][cdn];
+	invoice_name = row.invoice
+	payment_amount = row.invoice_amount
+	schedule_date = row.schedule_date
+    frappe.call({
+        method: 'property_management.property_management.doctype.tenancy.tenancy.create_paymententry',
+        args: {
+            party: frm.doc.tenant,
+            payment_amount: row.invoice_amount,
+            paid_amount: row.invoice_amount,
+            received_amount: row.invoice_amount,
+            paid_to: 'Cash - SD',
+            invoice_name: row.invoice,
+            doc: frm.doc.name,
+            schedule_date: schedule_date,
+            invoice_ref: row.invoice
+        },
+        callback: function(response) {
+            if (response.message) {
+                // frappe.msgprint(`${response.message} Payment Entry created successfully!`);
+                frappe.model.set_value(cdt,cdn,'payment_entry', response.message);
+                frm.save('Update');
+            } else {
+                frappe.msgprint('Failed to create payment entry');
+            }
+        }
+    });
+}
+
+
+function create_paymententry_landlord(frm,cdt,cdn) {
+	var row = locals[cdt][cdn];
+	invoice_name = row.invoice
+	payment_amount = row.invoice_amount
+	schedule_date = row.schedule_date
+    frappe.call({
+        method: 'property_management.property_management.doctype.tenancy.tenancy.create_paymententry_landlord',
+        args: {
+            party: frm.doc.landlord,
+            payment_amount: row.invoice_amount,
+            paid_amount: row.invoice_amount,
+            received_amount: row.invoice_amount,
+            paid_to: 'Cash - SD',
+            invoice_name: row.invoice,
+            doc: frm.doc.name,
+            schedule_date: schedule_date,
+            invoice_ref: row.invoice
+        },
+        callback: function(response) {
+            if (response.message) {
+                // frappe.msgprint(`${response.message} Payment Entry created successfully!`);
+                frappe.model.set_value(cdt,cdn,'payment_entry', response.message);
+                frm.save('Update');
+            } else {
+                frappe.msgprint('Failed to create payment entry');
+            }
+        }
+    });
+}
 
 frappe.ui.form.on('Tenancy', {
 	is_tenant_tenancy: function(frm) {
