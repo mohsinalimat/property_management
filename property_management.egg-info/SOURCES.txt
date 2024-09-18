@@ -16,6 +16,7 @@ property_management/api/crud_event.py
 property_management/config/__init__.py
 property_management/config/desktop.py
 property_management/config/docs.py
+property_management/fixtures/property_setter.json
 property_management/fixtures/translation.json
 property_management/property_management/__init__.py
 property_management/property_management/custom/asset.json
@@ -25,6 +26,10 @@ property_management/property_management/custom/depreciation_schedule.json
 property_management/property_management/custom/event.json
 property_management/property_management/custom/item.json
 property_management/property_management/custom/item_barcode.json
+property_management/property_management/custom/packed_item.json
+property_management/property_management/custom/payment_entry.json
+property_management/property_management/custom/sales_invoice.json
+property_management/property_management/custom/sales_invoice_item.json
 property_management/property_management/doctype/__init__.py
 property_management/property_management/doctype/documents/__init__.py
 property_management/property_management/doctype/documents/documents.json
